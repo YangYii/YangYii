@@ -31,36 +31,6 @@
   </entry>
   
   <entry>
-    <title>woowwo</title>
-    <link href="http://iyii.me/2018/02/10/woowwo/"/>
-    <id>http://iyii.me/2018/02/10/woowwo/</id>
-    <published>2018-02-10T13:53:07.000Z</published>
-    <updated>2018-02-11T08:08:45.558Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>font:  enable: true  # 外链字体库地址，例如 //fonts.googleapis.com (默认值)  host:  # 全局字体，应用在 body 元素上  global:    external: true    family: Monda  # 标题字体 (h1, h2, h3, h4, h5, h6)  headings:    external: true    family: Roboto Slab  # 文章字体  posts:    external: true    family:  # Logo 字体  logo:    external: true    family: Lobster Two    size: 24  # 代码字体，应用于 code 以及代码块  codes:    external: true    family: PT Mono</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;font:
-  enable: true
-
-  # 外链字体库地址，例如 //fonts.googleapis.com (默认值)
-  host:
-
-  # 全局字体，应用在 body 元素上
-  global:
-    external: true
-   
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>NewTest</title>
     <link href="http://iyii.me/2018/02/10/NewTest/"/>
     <id>http://iyii.me/2018/02/10/NewTest/</id>
