@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[asddsa]]></title>
-    <url>%2F2018%2F02%2F13%2Fasddsa%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[HEXO搭建GitHub博客（一）]]></title>
+    <url>%2F2018%2F02%2F20%2FHEXO%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[现在越来越多的人喜欢利用Github搭建静态网站，原因不外乎简单省钱。本人也利用hexo+github搭建了本博客，用于分享一些心得。在此过程中，折腾博客的各种配置以及功能占具了我一部分时间，在此详细记录下我是如何利用hexo+github搭建静态博客以及一些配置相关问题，以免过后遗忘，且当备份之用。因本人使用的是Linux，所以本教程以Ubuntu为参考，其实Ubuntu与windows搭建github博客相差无几，如果有用windows的小伙伴感到不适，可以参考手把手教你建github技术博客教程。 前期工作 注册GitHub （官网进行注册）。 下载node.js并安装（官网下载安装），默认会安装npm。 下载安装git（官网下载安装。 下载安装hexo。 注册GitHub这里我们就不多讲了，小伙伴们可以点击这里，进入官网进行注册。 安装node.js下载node.js并安装（官网）]]></content>
+      <categories>
+        <category>技术杂谈</category>
+      </categories>
+      <tags>
+        <tag>HEXO</tag>
+      </tags>
   </entry>
 </search>

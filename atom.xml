@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://iyii.me/"/>
-  <updated>2018-02-13T09:15:25.381Z</updated>
+  <updated>2018-02-20T07:35:18.942Z</updated>
   <id>http://iyii.me/</id>
   
   <author>
@@ -17,16 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>asddsa</title>
-    <link href="http://iyii.me/2018/02/13/asddsa/"/>
-    <id>http://iyii.me/2018/02/13/asddsa/</id>
-    <published>2018-02-13T09:15:25.000Z</published>
-    <updated>2018-02-13T09:15:25.381Z</updated>
+    <title>HEXO搭建GitHub博客（一）</title>
+    <link href="http://iyii.me/2018/02/20/HEXO%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://iyii.me/2018/02/20/HEXO搭建GitHub博客（一）/</id>
+    <published>2018-02-19T16:00:00.000Z</published>
+    <updated>2018-02-20T07:35:18.942Z</updated>
+    
+    <content type="html"><![CDATA[<p>现在越来越多的人喜欢利用Github搭建静态网站，原因不外乎简单省钱。本人也利用hexo+github搭建了本博客，用于分享一些心得。在此过程中，折腾博客的各种配置以及功能占具了我一部分时间，在此详细记录下我是如何利用hexo+github搭建静态博客以及一些配置相关问题，以免过后遗忘，且当备份之用。<br><strong>因本人使用的是Linux，所以本教程以Ubuntu为参考，其实Ubuntu与windows搭建github博客相差无几，如果有用windows的小伙伴感到不适，可以参考<a href="https://www.jianshu.com/p/701b1095da11" target="_blank" rel="noopener">手把手教你建github技术博客教程</a>。</strong></p><h2 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h2><ul><li>注册GitHub （官网进行注册）。</li><li>下载node.js并安装（官网下载安装），默认会安装npm。</li><li>下载安装git（官网下载安装。</li><li>下载安装hexo。</li></ul><h3 id="注册GitHub"><a href="#注册GitHub" class="headerlink" title="注册GitHub"></a>注册GitHub</h3><p>这里我们就不多讲了，小伙伴们可以点击<a href="https://github.com/" target="_blank" rel="noopener">这里</a>，进入官网进行注册。</p><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>下载node.js并安装（<a href="https://nodejs.org/en/" target="_blank" rel="noopener">官网</a>）</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;现在越来越多的人喜欢利用Github搭建静态网站，原因不外乎简单省钱。本人也利用hexo+github搭建了本博客，用于分享一些心得。在此过程中，折腾博客的各种配置以及功能占具了我一部分时间，在此详细记录下我是如何利用hexo+github搭建静态博客以及一些配置相关问题，
+      
+    
     </summary>
     
+      <category term="技术杂谈" scheme="http://iyii.me/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="HEXO" scheme="http://iyii.me/tags/HEXO/"/>
     
   </entry>
   
