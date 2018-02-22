@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="IYii&#39;s Blog">
 <meta property="og:description" content="现在越来越多的人喜欢利用Github搭建静态网站，原因不外乎简单省钱。本人也利用hexo+github搭建了本博客，用于分享一些心得。在此过程中，折腾博客的各种配置以及功能占具了我一部分时间，在此详细记录下我是如何利用hexo+github搭建静态博客以及一些配置相关问题，以免过后遗忘，且当备份之用。因本人使用的是Linux，所以本教程以Ubuntu为参考，其实Ubuntu与windows搭建gi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-22T06:45:21.452Z">
+<meta property="og:updated_time" content="2018-02-22T10:17:46.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXO搭建GitHub博客（一）">
 <meta name="twitter:description" content="现在越来越多的人喜欢利用Github搭建静态网站，原因不外乎简单省钱。本人也利用hexo+github搭建了本博客，用于分享一些心得。在此过程中，折腾博客的各种配置以及功能占具了我一部分时间，在此详细记录下我是如何利用hexo+github搭建静态博客以及一些配置相关问题，以免过后遗忘，且当备份之用。因本人使用的是Linux，所以本教程以Ubuntu为参考，其实Ubuntu与windows搭建gi">
@@ -477,6 +477,10 @@ $ npm install
 <p>打开浏览器，输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4000/</span><br></pre></td></tr></table></figure>
 <p>我们可以在浏览器端看到我们搭建好的博客和发布的文章了。</p>
+<h3 id="文章内插入图片"><a href="#文章内插入图片" class="headerlink" title="文章内插入图片"></a>文章内插入图片</h3><p>在文章中写入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/upload_image/1.jpg)</span><br></pre></td></tr></table></figure>
+<p>​    然后进入themes-主题名-source-upload_image目录下(自己创建)，将图片放到这个目录下，就可以了。</p>
+<p>说明：当执行hexo g命令时，会自动把图片复制到 public文件的upload_image目录下。</p>
 
       
     </div>
@@ -496,7 +500,7 @@ $ npm install
   <p><span>本文标题:</span><a href="/2018/02/20/HEXO搭建GitHub博客（一）/">HEXO搭建GitHub博客（一）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 IYii 的个人博客">IYii</a></p>
   <p><span>发布时间:</span>2018年02月20日 - 00:02</p>
-  <p><span>最后更新:</span>2018年02月22日 - 14:02</p>
+  <p><span>最后更新:</span>2018年02月22日 - 18:02</p>
   <p><span>原始链接:</span><a href="/2018/02/20/HEXO搭建GitHub博客（一）/" title="HEXO搭建GitHub博客（一）">http://iyii.me/2018/02/20/HEXO搭建GitHub博客（一）/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://iyii.me/2018/02/20/HEXO搭建GitHub博客（一）/"  aria-label="复制成功！"></i></span>
   </p>
@@ -540,6 +544,22 @@ $ npm install
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/22/HEXO主题NEXT配置/" rel="prev" title="HEXO主题NEXT配置">
+                HEXO主题NEXT配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -622,7 +642,7 @@ $ npm install
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -700,7 +720,7 @@ $ npm install
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前期工作"><span class="nav-number">1.</span> <span class="nav-text">前期工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地搭建hexo静态博客"><span class="nav-number">2.</span> <span class="nav-text">本地搭建hexo静态博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HEXO常用命令"><span class="nav-number">2.1.</span> <span class="nav-text">HEXO常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将博客与GitHub关联"><span class="nav-number">3.</span> <span class="nav-text">将博客与GitHub关联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定域名"><span class="nav-number">4.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新博客内容"><span class="nav-number">5.</span> <span class="nav-text">更新博客内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更新文章"><span class="nav-number">5.1.</span> <span class="nav-text">更新文章</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前期工作"><span class="nav-number">1.</span> <span class="nav-text">前期工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地搭建hexo静态博客"><span class="nav-number">2.</span> <span class="nav-text">本地搭建hexo静态博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HEXO常用命令"><span class="nav-number">2.1.</span> <span class="nav-text">HEXO常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将博客与GitHub关联"><span class="nav-number">3.</span> <span class="nav-text">将博客与GitHub关联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定域名"><span class="nav-number">4.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新博客内容"><span class="nav-number">5.</span> <span class="nav-text">更新博客内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更新文章"><span class="nav-number">5.1.</span> <span class="nav-text">更新文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章内插入图片"><span class="nav-number">5.2.</span> <span class="nav-text">文章内插入图片</span></a></li></ol></li></ol></div>
             
 
           </div>
