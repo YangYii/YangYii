@@ -2,8 +2,11 @@
 <search>
   <entry>
     <title><![CDATA[HEXO主题NEXT配置]]></title>
-    <url>%2F2018%2F02%2F22%2FHEXO%E4%B8%BB%E9%A2%98NEXT%E9%85%8D%E7%BD%AE%2F</url>
+    <url>%2F2018%2F02%2F22%2FHEXO%E4%B8%BB%E9%A2%98NEXT%E9%85%8D%E7%BD%AE%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
     <content type="text"></content>
+      <categories>
+        <category>技术杂谈</category>
+      </categories>
       <tags>
         <tag>HEXO</tag>
       </tags>
